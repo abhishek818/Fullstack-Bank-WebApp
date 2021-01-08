@@ -9,7 +9,7 @@ const ListBanks = () => {
   
   const getBanks = async () => {
     try {
-      const response = await fetch(`http://localhost:5000/api/branches?q=${query}`);
+      const response = await fetch(`/api/branches?q=${query}`);
       const results = await response.json();
       
       setBanks(results);

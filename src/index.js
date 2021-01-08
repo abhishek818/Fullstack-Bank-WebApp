@@ -1,9 +1,19 @@
 const express = require('express');
 const app = express();
 const cors = require('cors');
+
+const path = require('path');
 const pool = require("./db");
+
+const PORT = process.env.PORT || 5000;
+
 app.use(cors());
 app.use(express.json());
+
+if(process.env.NODE_ENV === "production")
+{
+  app.use(express.static(path.join(__dirname, "client/build")));
+}
 
 app.get("/api/banks", async (req, res) => {
   try 
@@ -99,7 +109,7 @@ app.get("/api/branches/autocomplete", async (req, res) =>
 });
 
 
-app.listen(5000, () => 
+app.listen(PORT, () => 
 {
-    console.log("Server has started on port 5000");
+    console.log(`Server has started on port ${PORT}`);
 });

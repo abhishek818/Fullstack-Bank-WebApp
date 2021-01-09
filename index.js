@@ -11,7 +11,7 @@ console.log("PORT= "+process.env.PORT);
 app.use(cors());
 app.use(express.json());
 
-console.log(path.join(__dirname, "client/build"));
+// console.log(path.join(__dirname, "client/build"));
 if(process.env.NODE_ENV === "production")
 {
   app.use(express.static(path.join(__dirname, "/client/build")));

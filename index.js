@@ -6,7 +6,7 @@ const path = require('path');
 const pool = require("./db");
 
 const PORT = process.env.PORT || 5000;
-
+console.log(PORT);
 app.use(cors());
 app.use(express.json());
 

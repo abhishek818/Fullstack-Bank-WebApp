@@ -34,7 +34,7 @@ app.get("/api/branches/", async (req, res) => {
   try 
   {
     var search = req.query.q ? req.query.q.toUpperCase() : "";
-    var limit = req.query.limit ? req.query.limit : 500;
+    var limit = req.query.limit ? req.query.limit : 100;
     var offset = req.query.offset ? req.query.offset : 0;
 
     var searchInt = parseInt(search);
@@ -72,7 +72,7 @@ app.get("/api/branches/autocomplete", async (req, res) =>
   {
     //Handling for empty parameters
     var branch = req.query.q ? req.query.q.toUpperCase() : "";
-    var limit = req.query.limit ? req.query.limit : 500;
+    var limit = req.query.limit ? req.query.limit : 100;
     var offset = req.query.offset ? req.query.offset : 0;
 
     const results = await pool.query(`SET client_encoding to 'win1252';  

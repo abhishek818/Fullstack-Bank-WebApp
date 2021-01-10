@@ -11,10 +11,10 @@ require("dotenv").config();
 //   idleTimeoutMillis: 1000,
 // }
 
-const devConfig = 'postgres://kttvhdzjgunddn:ef39dadc2723176f2d63d9fc82a9abc9b82d320002c181b41216970e37553d60@ec2-54-236-122-55.compute-1.amazonaws.com:5432/dcfg1f9vm4adnn';
-
+const devConfig = `postgresql://${process.env.PG_USER}:${process.env.PG_PASSWORD}@${process.env.PG_HOST}:${process.env.PG_PORT}/${process.env.PG_DATABASE}`;
+                  //  console.log(process.env.PG_USER);
 const proConfig = process.env.DATABASE_URL;
-
+ console.log(process.env.DATABASE_URL);
 const pool = new Pool({
   connectionString : process.env.NODE_ENV === "production" ? proConfig : devConfig
 });

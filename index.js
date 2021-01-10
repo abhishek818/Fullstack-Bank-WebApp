@@ -29,7 +29,7 @@ app.get("/api/banks", async (req, res) => {
   }
 });
 
-app.get("/api/branches/", async (req, res) => {
+app.get("/api/branches", async (req, res) => {
   
   try 
   {

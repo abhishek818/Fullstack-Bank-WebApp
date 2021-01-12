@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const cors = require('cors');
+// const cors = require('cors');
 
 const path = require('path');
 const pool = require("./db");
@@ -8,7 +8,7 @@ const pool = require("./db");
 const PORT = process.env.PORT || 5000;
 console.log("PORT= "+process.env.PORT);
 
-app.use(cors());
+// app.use(cors());
 app.use(express.json());
 
 // console.log(path.join(__dirname, "client/build"));
@@ -109,6 +109,30 @@ app.get("/api/branches/autocomplete", async (req, res) =>
       console.error(err.message);
     }
 });
+
+// app.get("/api/branches/autocomplete", async (req, res) =>
+// {
+//   try 
+//   {
+//     var branch = req.query.q;
+//     var limit = req.query.limit;
+//     var offset = req.query.offset;
+
+//     const results = await pool.query(`SET client_encoding to 'win1252';  
+//       SELECT ifsc, bank_id, branch, address, city, district, state FROM branches
+//       where branch like '${branch}%'
+//       order by ifsc 
+//       LIMIT ${limit} 
+//       OFFSET ${offset}`);
+    
+    
+//     res.send(results[1].rows);
+//   } 
+//     catch (err) 
+//     {
+//       console.error(err.message);
+//     }
+// });
 
 
 app.listen(PORT, () => 

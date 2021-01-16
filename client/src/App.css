@@ -58,6 +58,7 @@
 
 .search
 {
+  caret-color: red;
   width: 20%;
   margin-left: 50%;
   display: inline;
